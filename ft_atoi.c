@@ -21,6 +21,8 @@ int	ft_atoi(const char *str)
 	i = 0;
 	result = 0;
 	sign = 1;
+	while (str[i] == ' ' || str[i] == '\t')
+		i++;
 	while (str[i] == 45 || str[i] == 43)
 	{
 		if (str[i] == 45)
@@ -34,8 +36,8 @@ int	ft_atoi(const char *str)
 	}
 	return (sign * result);
 }
-int main()
-{
-	char str[] = "     233";
-	printf("%d", ft_atoi(str));
-}
+// int main()
+// {
+// 	char str[] = "     233";
+// 	printf("%d", ft_atoi(str));
+// }
