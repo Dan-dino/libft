@@ -1,44 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split2.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daalhosa <daalhosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/16 07:27:33 by daalhosa          #+#    #+#             */
-/*   Updated: 2023/11/16 17:34:35 by daalhosa         ###   ########.fr       */
+/*   Created: 2023/11/16 16:32:20 by daalhosa          #+#    #+#             */
+/*   Updated: 2023/11/16 17:23:33 by daalhosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	wordcount(char const *str, char del)
+char	f(unsigned int i, char c)
 {
-	size_t	count;
-	size_t	i;
-
-	i = 1;
-	count = 0;
-	if (str[i - 1] == '\0')
-		return (0);
-	while (str[i] != '\0')
-	{
-		if ((str[i] == del && str[i - 1] != del) 
-			|| (str[i] != del && str[i + 1] == '\0'))
-			count++;
-	}
-	return (count);
+	
+	c -= 32;
+	return (c);
 }
 
-
-
-int	main(void)
+void	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char const	*str;
-	char		del;
+	size_t		i;
+	size_t		j;
+	char		*str;
 
-	str = "this is a string";
-	del = 's';
+	i = ft_strlen(s);
+	j  = 0;
+	str = malloc(sizeof (char) * (i + 1));
+	if(!str)
+		return (NULL);
+	while (s[j])
+	{
+		str[j] = f(j, s[j]);
+		j++;
+		
+	}
+	str[j] = '\0';
+	return (str);
+}
 
-	printf("%zu", wordcount(str, del));
+int	main()
+{
+	char s[] = "this is a string";
+	printf("%s", ft_strmapi(s, f));
 }

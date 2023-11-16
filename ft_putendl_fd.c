@@ -1,44 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split2.c                                        :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daalhosa <daalhosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/16 07:27:33 by daalhosa          #+#    #+#             */
-/*   Updated: 2023/11/16 17:34:35 by daalhosa         ###   ########.fr       */
+/*   Created: 2023/11/16 18:45:53 by daalhosa          #+#    #+#             */
+/*   Updated: 2023/11/16 18:49:18 by daalhosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	wordcount(char const *str, char del)
+void	ft_putendl_fd(char *s, int fd)
 {
-	size_t	count;
-	size_t	i;
-
-	i = 1;
-	count = 0;
-	if (str[i - 1] == '\0')
-		return (0);
-	while (str[i] != '\0')
-	{
-		if ((str[i] == del && str[i - 1] != del) 
-			|| (str[i] != del && str[i + 1] == '\0'))
-			count++;
-	}
-	return (count);
-}
-
-
-
-int	main(void)
-{
-	char const	*str;
-	char		del;
-
-	str = "this is a string";
-	del = 's';
-
-	printf("%zu", wordcount(str, del));
+	ft_putstr_fd(*s, fd);
+	write(1, '\n', 1);
 }

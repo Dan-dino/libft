@@ -6,7 +6,7 @@
 /*   By: daalhosa <daalhosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 08:14:44 by daalhosa          #+#    #+#             */
-/*   Updated: 2023/11/14 17:19:42 by daalhosa         ###   ########.fr       */
+/*   Updated: 2023/11/16 18:55:11 by daalhosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,12 @@ int			ft_strncmp(const char *s1, const char *s2, size_t n);
 void		*ft_memchr(const void *s, int c, size_t n);
 char		*ft_strnstr(const char *haystack, const char *needle, size_t len);
 int			ft_atoi(const char *str);
-char	*ft_substr(char const *s, unsigned int start, size_t len);
+char		*ft_substr(char const *s, unsigned int start, size_t len);
+char		*ft_itoa(int n);
+void		*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+void		ft_putchar(char c, int fd);
+void		ft_putstr_fd(char *s, int fd);
+void		ft_putendl_fd(char *s, int fd);
+void		ft_putnbr(int n, int fd);
 
 #endif // LIBFT_H

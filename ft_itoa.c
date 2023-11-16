@@ -6,7 +6,7 @@
 /*   By: daalhosa <daalhosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 07:32:50 by daalhosa          #+#    #+#             */
-/*   Updated: 2023/11/16 08:12:17 by daalhosa         ###   ########.fr       */
+/*   Updated: 2023/11/16 16:16:49 by daalhosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ size_t	digits(int n)
 
 int	abs(int n)
 {
-	if(n < 0)
+	if (n < 0)
 		return (-n);
 	return (n);
 }
@@ -37,28 +37,27 @@ int	abs(int n)
 char	*ft_itoa(int n)
 {
 	char	*str;
-	int		i;
 	int		j;
 
-	i = 0;
 	j = digits(n);
 	str = malloc (sizeof (char) * (j + 1));
-	if(n < 0)
+	if (n < 0)
 	{
+		j += 1;
 		str[0] = '-';
-		i++;
 	}
 	n = abs(n);
+	str[j] = '\0';
 	while (n)
 	{
-		str[i] = (n / 10^j) + '0';
+		str[j - 1] = (n % 10) + '0';
+		n /= 10;
 		j--;
-		i++;
 	}
 	return (str);
 }
 
 int	main(void)
 {
-	printf("%s", ft_itoa(3));
+	printf("%s", ft_itoa(2147483647));
 }

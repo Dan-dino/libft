@@ -6,7 +6,7 @@
 /*   By: daalhosa <daalhosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 13:18:53 by daalhosa          #+#    #+#             */
-/*   Updated: 2023/11/16 08:28:33 by daalhosa         ###   ########.fr       */
+/*   Updated: 2023/11/16 13:29:41 by daalhosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,27 +23,27 @@ static size_t	wordcount(char const *str, char del)
 		return (0);
 	while (str[i] != '\0')
 	{
-		if (str[i] == del && str[i - 1] != del || str[i] != del && str[i + 1] == '\0')
-			count++
+		if (str[i] == del && str[i - 1] != del
+			|| str[i] != del && str[i + 1] == '\0')
+			count++;
 		i++;
 	}
 	return (count);
 }
-static void allocate(char const *str, char del)
+
+static void	allocate(char const *str, char del, size_t count)
 {
-	char 	**s;
-	size_t	i;
+	char	**s;
 	size_t	j;
 	size_t	k;
 	size_t	start;
 	size_t	end;
 
-	i = wordcount(s, del);
 	j = 0;
 	k = 1;
-	if(!str)
+	if (!str)
 		return (NULL);
-	while(str && j < i)
+	while(str && j < count)
 	{
 		while(s[k - 1] == del && s[k] !=del || s[k - 1] != del)
 		{
@@ -53,7 +53,7 @@ static void allocate(char const *str, char del)
 			end = k;
 			k++;
 		}
-		s[j] = malloc(sizeof(char *) * (end - start));
+		s[j] = ft_substr(str, start, );
 		k++;
 		j++;
 	}
