@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_split2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daalhosa <daalhosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/31 19:12:08 by daalhosa          #+#    #+#             */
-/*   Updated: 2023/11/06 08:56:24 by daalhosa         ###   ########.fr       */
+/*   Created: 2023/11/16 07:27:33 by daalhosa          #+#    #+#             */
+/*   Updated: 2023/11/16 07:30:55 by daalhosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *str)
+static size_t	wordcount(char const *str, char del)
 {
+	size_t	count;
 	size_t	i;
 
-	i = 0;
+	i = 1;
+	count = 0;
+	if (str[i - 1] == '\0')
+		return (0);
 	while (str[i] != '\0')
+	{
+		if (str[i] == del && str[i - 1] != del || str[i] != del && str[i + 1] == '\0')
+			count++;
 		i++;
-	i--;
-	return (i);
+	}
+	return (count);
 }
+

@@ -6,7 +6,7 @@
 /*   By: daalhosa <daalhosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 13:18:53 by daalhosa          #+#    #+#             */
-/*   Updated: 2023/11/15 08:05:47 by daalhosa         ###   ########.fr       */
+/*   Updated: 2023/11/16 08:28:33 by daalhosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static size_t	wordcount(char const *str, char del)
 	while (str[i] != '\0')
 	{
 		if (str[i] == del && str[i - 1] != del || str[i] != del && str[i + 1] == '\0')
-			count++;
+			count++
 		i++;
 	}
 	return (count);
