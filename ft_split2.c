@@ -30,7 +30,52 @@ static size_t	wordcount(char const *str, char del)
 	return (count);
 }
 
+char	**ft_split(char const *s, char c)
+{
+	char		**str;
+	size_t		count;
+	size_t		i;
+	const char	*temp = s;
 
+	count = wordcount(s, c);
+	i = 0;
+	str = malloc(sizeof (char *) * (count + 1));
+	if (!str)
+		return (NULL);
+	while (i < count)
+	{
+		str[i] = allocate(&temp, c);
+		if (!*str)
+		{
+			while (i-- > 0)
+			{
+				free(str[i]);
+			}
+			free(str);
+			return (NULL);
+		}
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
+}
+
+int	main(void)
+{
+	const char	*str = ",,,Dana,,,taha,,,something,,";
+	char		del = ',';
+	char		**result = ft_split(str, del);
+	int			i = 0;
+
+	while (result[i] != NULL)
+	{
+		printf("%s\n", result[i]);
+		free(result[i]);
+		i++;
+	}
+	free(result);
+	return (0);
+}
 
 int	main(void)
 {
