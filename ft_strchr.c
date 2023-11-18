@@ -23,3 +23,9 @@ char	*ft_strchr(const char *s, int c)
 		return ((char *) s + i);
 	return (NULL);
 }
+
+// int	main(void)
+// {
+// 	char *s = "this is a string";
+// 	printf("%s", ft_strchr(s, 'a'));
+// }

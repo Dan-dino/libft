@@ -23,11 +23,33 @@ static size_t	wordcount(char const *str, char del)
 		return (0);
 	while (str[i] != '\0')
 	{
-		if ((str[i] == del && str[i - 1] != del) 
+		if ((str[i] == del && str[i - 1] != del)
 			|| (str[i] != del && str[i + 1] == '\0'))
 			count++;
+		i++;
 	}
 	return (count);
+}
+
+char	*allocate(char const **s, char del)
+{
+	size_t	i;
+	char	*str;
+
+// Find the start of the word
+	while (**s && **s == del)
+		(*s)++;
+	if (!**s)
+		return (NULL);
+	i = 0;
+// Find the end of the word
+	while ((*s)[i] && (*s)[i] != del)
+		i++;
+    // Allocate memory for the word
+	*str = ft_substr(*s, 0, i - 1);
+    // Update s to point to the next word
+	*s += i;
+	return (str);
 }
 
 char	**ft_split(char const *s, char c)
@@ -62,7 +84,7 @@ char	**ft_split(char const *s, char c)
 
 int	main(void)
 {
-	const char	*str = ",,,Dana,,,taha,,,something,,";
+	const char	*str = ",,,someTHING,,,,,,something,,";
 	char		del = ',';
 	char		**result = ft_split(str, del);
 	int			i = 0;
@@ -75,15 +97,4 @@ int	main(void)
 	}
 	free(result);
 	return (0);
-}
-
-int	main(void)
-{
-	char const	*str;
-	char		del;
-
-	str = "this is a string";
-	del = 's';
-
-	printf("%zu", wordcount(str, del));
 }
