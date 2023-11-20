@@ -6,12 +6,11 @@
 /*   By: daalhosa <daalhosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 09:16:30 by daalhosa          #+#    #+#             */
-/*   Updated: 2023/11/06 11:30:55 by daalhosa         ###   ########.fr       */
+/*   Updated: 2023/11/20 11:02:20 by daalhosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
